@@ -1,26 +1,34 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import tailwindv4 from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
 	integrations: [
 		starlight({
-			title: 'My Docs',
+			title: 'Echoes of Aether Wiki',
+			customCss: ['./src/styles/tailwind.css'],
+			components: {
+				Header: './src/components/HeaderLinks.astro'
+			},
 			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
 			sidebar: [
 				{
-					label: 'Guides',
+					label: 'プレイヤー情報',
 					items: [
-						// Each item here is one entry in the navigation menu.
-						{ label: 'Example Guide', slug: 'guides/example' },
+						{ label: '始め方', slug: 'players/getting-started' },
+						{ label: '冒険ガイド', slug: 'players/adventure-guide' },
 					],
 				},
 				{
-					label: 'Reference',
-					autogenerate: { directory: 'reference' },
+					label: '世界観',
+					autogenerate: { directory: 'worldview' },
 				},
 			],
 		}),
 	],
+	vite: {
+		plugins: [tailwindv4()],
+	},
 });

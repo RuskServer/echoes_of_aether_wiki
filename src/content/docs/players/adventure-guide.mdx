@@ -1,0 +1,108 @@
+---
+title: 序盤の動き方と冒険ガイド
+description: 初めてこのサーバーに挑むプレイヤーのための、効率的な進め方と目標について解説します。
+---
+
+import { Steps, Tabs, TabItem } from '@astrojs/starlight/components';
+
+初めてこの世界に降り立った探索者へ。効率的な進め方と、生き残るための目標を解説します。
+
+## 🗺️ 第一層（1F）の探索と目標
+
+序盤の目標は、探索を通じて資金を集め、装備を整えることです。
+
+| 目標 | 詳細 |
+| :--- | :--- |
+| **資金稼ぎ** | 敵を倒してドロップ品や不要なアイテムを集めましょう。 |
+| **装備の購入** | トレーダーでお金を使い、より強力な武器や装備に更新しましょう。 |
+| **次の階層へ** | 第二層へ通じる入口を発見し、冒険の幅を広げましょう。 |
+
+---
+
+## 🔍 効率的な探索ルート
+
+第一層（1F）では、**「外周の道沿い」**を進むのが効率的です。道沿いには以下の重要ポイントが点在しています。
+
+<div class="not-prose space-y-4 my-8">
+  <div class="border-l-4 border-accent bg-base-300/50 p-6 shadow-sm">
+    <div class="font-display font-bold text-accent text-xl mb-1">トレーダーの洞窟</div>
+    <div class="text-base leading-relaxed text-base-content/90">
+      ドロップ品を売却し、お金を稼ぐ拠点です。各層に最低1人は配置されており、序盤の最も重要な拠点となります。
+    </div>
+  </div>
+
+  <div class="border-l-4 border-error bg-base-300/50 p-6 shadow-sm">
+    <div class="font-display font-bold text-error text-xl mb-1">敵がいる洞窟</div>
+    <div class="text-base leading-relaxed text-base-content/90">
+      経験値やドロップ品を獲得できる主要エリアです。装備を整えてから挑むことを推奨します。
+    </div>
+  </div>
+
+  <div class="border-l-4 border-secondary bg-base-300/50 p-6 shadow-sm">
+    <div class="font-display font-bold text-xl mb-1" style="color: #a78bfa;">第二層への入口</div>
+    <div class="text-base leading-relaxed text-base-content/90">
+      次の階層へ進むための道を見つけられます。第一層のどこかに隠されたゲートを探してください。
+    </div>
+  </div>
+</div>
+
+---
+
+
+## ⚙️ レベルアップ後の成長システム (重要!)
+
+キャラクターのレベルが上がったら、以下のコマンドを使用して強化を行いましょう。
+
+<div class="overflow-x-auto my-6">
+  <table class="table w-full table-fixed">
+    <thead class="bg-base-200/50 text-accent border-b border-neutral/30">
+      <tr>
+        <th class="w-1/4 py-4 text-sm uppercase tracking-wider">コマンド</th>
+        <th class="w-1/4 py-4 text-sm uppercase tracking-wider">機能</th>
+        <th class="w-1/2 py-4 text-sm uppercase tracking-wider">目的</th>
+      </tr>
+    </thead>
+    <tbody class="text-base-content/90">
+      <tr class="border-b border-neutral/10 hover:bg-white/5 transition-colors">
+        <td class="font-mono font-bold text-primary">/att</td>
+        <td>ステータス振り分け</td>
+        <td>攻撃力や防御力などの基礎ステータスを強化します。</td>
+      </tr>
+      <tr class="border-b border-neutral/10 hover:bg-white/5 transition-colors">
+        <td class="font-mono font-bold text-secondary">/st</td>
+        <td>スキルツリー</td>
+        <td>新しいスキルを習得・強化します。</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+---
+
+## ✨ スキルの割り当てと発動
+
+スキルを獲得したら、戦闘で使用するために以下の準備が必要です。
+
+<Steps>
+
+1. **スキルの割り当て**
+   `/skills` コマンドで管理画面を開き、獲得したスキルをショートカットに割り当てます。
+
+2. **発動モードへの切り替え**
+   **オフハンド切り替えキー**（デフォルト設定では `F` キー）を押して、スキル発動モードに入ります。
+
+3. **スキル発動**
+   スキル発動モード中に対応するスロットのキーを押すことで、スキルが発動します。
+
+</Steps>
+
+---
+
+## 🧗 第二層（2F）への進出
+
+第二層では敵が格段に強くなりますが、その分より価値のあるアイテムや新しいトレーダーとの出会いがあります。装備を整え、ステータスを強化したら、積極的に深層へと挑戦しましょう。
+
+<div class="alert-gothic mt-8">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+  <span>装備の更新を怠ると、一瞬の隙が命取りになります。常にトレーダーでの売買を意識しましょう。</span>
+</div>

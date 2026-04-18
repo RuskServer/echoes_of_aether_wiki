@@ -11,7 +11,13 @@
   },
   "dependencies": {
     "@astrojs/starlight": "^0.38.3",
+    "@tailwindcss/vite": "^4.2.2",
     "astro": "^6.0.1",
-    "sharp": "^0.34.2"
+    "daisyui": "^5.5.19",
+    "sharp": "^0.34.2",
+    "tailwindcss": "^4.2.2"
+  },
+  "overrides": {
+    "esbuild": "0.25.12"
   }
 }

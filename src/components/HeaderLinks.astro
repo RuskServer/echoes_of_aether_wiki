@@ -1,0 +1,125 @@
+---
+import type { Props } from '@astrojs/starlight/props';
+import Search from '@astrojs/starlight/components/Search.astro';
+import SiteTitle from '@astrojs/starlight/components/SiteTitle.astro';
+import SocialIcons from '@astrojs/starlight/components/SocialIcons.astro';
+import ThemeSelect from '@astrojs/starlight/components/ThemeSelect.astro';
+---
+
+<div class="header-force-row">
+  <div class="header-content-inner">
+    {/* 左側 */}
+    <div class="left-section">
+      <SiteTitle {...Astro.props} />
+    </div>
+
+    {/* 中央：絶対配置ではない、純粋なFlex子要素として配置 */}
+    <nav class="center-section hidden lg:flex">
+      <a href="/players/getting-started/" class="nav-link">プレイヤー情報</a>
+      <a href="/worldview/" class="nav-link">世界観</a>
+    </nav>
+
+    {/* 右側 */}
+    <div class="right-section">
+      <div class="search-container-custom">
+        <Search {...Astro.props} />
+      </div>
+      <div class="icons-container hidden md:flex">
+        <SocialIcons {...Astro.props} />
+        <ThemeSelect {...Astro.props} />
+      </div>
+    </div>
+  </div>
+</div>
+
+<style is:global>
+  /* Starlightの標準ヘッダー構造を無力化する */
+  header.header {
+    display: contents !important;
+  }
+
+  /* 完全に独立したコンテナで1行を強制する */
+  .header-force-row {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--sl-nav-height);
+    background-color: var(--sl-color-bg-nav);
+    border-bottom: 1px solid var(--sl-color-hairline-light);
+    z-index: var(--sl-z-index-navbar);
+    padding: 0 var(--sl-nav-pad-x);
+    display: flex;
+    align-items: center;
+  }
+
+  .header-content-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 100%;
+    gap: 1rem;
+  }
+
+  .left-section {
+    flex: 0 0 auto;
+    min-width: 200px;
+  }
+
+  .center-section {
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+  }
+
+  .right-section {
+    flex: 0 1 auto;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    justify-content: flex-end;
+    min-width: 300px;
+  }
+
+  .search-container-custom {
+    flex: 1;
+    max-width: 350px;
+  }
+
+  .search-container-custom button {
+    width: 100% !important;
+  }
+
+  .icons-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-left: 1rem;
+    border-left: 1px solid var(--sl-color-hairline);
+  }
+
+  /* リンクの基本スタイル */
+  .nav-link {
+    font-family: "Cinzel", "Noto Serif JP", serif;
+    font-weight: 700;
+    color: var(--sl-color-gray-2);
+    text-decoration: none !important;
+    font-size: 0.9rem;
+    letter-spacing: 0.15em;
+    white-space: nowrap;
+    transition: color 0.2s;
+  }
+
+  .nav-link:hover {
+    color: var(--sl-color-accent);
+  }
+
+  /* モバイル対応 */
+  @media (max-width: 50rem) {
+    .center-section { display: none; }
+    .right-section { min-width: auto; }
+    .left-section { min-width: auto; }
+  }
+</style>

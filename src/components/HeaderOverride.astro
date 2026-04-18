@@ -1,0 +1,90 @@
+---
+import type { Props } from '@astrojs/starlight/props';
+import Search from '@astrojs/starlight/components/Search.astro';
+import SiteTitle from '@astrojs/starlight/components/SiteTitle.astro';
+import SocialIcons from '@astrojs/starlight/components/SocialIcons.astro';
+import ThemeSelect from '@astrojs/starlight/components/ThemeSelect.astro';
+---
+
+<div class="custom-header-grid">
+  {/* 左: ロゴ */}
+  <div class="flex items-center">
+    <SiteTitle {...Astro.props} />
+  </div>
+
+  {/* 中: ナビ */}
+  <nav class="hidden md:flex items-center justify-center gap-10">
+    <a href="/players/getting-started/" class="nav-link">プレイヤー情報</a>
+    <a href="/worldview/" class="nav-link">世界観</a>
+  </nav>
+
+  {/* 右: 検索とアイコン */}
+  <div class="flex items-center justify-end gap-4 min-w-0">
+    <div class="search-wrap flex-grow max-w-[360px]">
+      <Search {...Astro.props} />
+    </div>
+    <div class="hidden lg:flex items-center gap-4 border-l border-white/10 pl-4">
+      <SocialIcons {...Astro.props} />
+      <ThemeSelect {...Astro.props} />
+    </div>
+  </div>
+</div>
+
+<style is:global>
+  /* Starlightのヘッダーpaddingを完全リセット */
+  header.header {
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  header.header > div {
+    display: contents !important;
+  }
+
+  .custom-header-grid {
+    display: grid;
+    grid-template-columns: 250px 1fr 1fr; /* 左を固定、中央と右で分け合う */
+    width: 100%;
+    height: var(--sl-nav-height);
+    padding: 0 1.5rem;
+    align-items: center;
+    background-color: var(--sl-color-bg-nav);
+  }
+
+  /* リンクの基本スタイル */
+  .nav-link {
+    font-family: var(--sl-font-display);
+    font-weight: 700;
+    color: var(--sl-color-gray-2);
+    text-decoration: none !important;
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+    transition: color 0.2s ease;
+    text-transform: uppercase;
+  }
+
+  .nav-link:hover {
+    color: var(--sl-color-accent);
+  }
+
+  /* 検索バーの幅調整 */
+  .search-wrap {
+    min-width: 180px;
+  }
+
+  .search-wrap button {
+    width: 100% !important;
+  }
+
+  /* 画面が狭くなった時の調整 */
+  @media (max-width: 70rem) {
+    .custom-header-grid {
+      grid-template-columns: auto 1fr; /* 中央ナビを消すための準備 */
+    }
+    nav {
+      display: none;
+    }
+  }
+</style>
