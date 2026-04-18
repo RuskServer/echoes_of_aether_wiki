@@ -8,6 +8,7 @@ export default defineConfig({
 	site: 'https://wiki.ruskserver.com',
 	integrations: [
 		starlight({
+			defaultTheme: 'dark',
 			title: 'Echoes of Aether Wiki',
 			customCss: ['./src/styles/tailwind.css'],
 			components: {
