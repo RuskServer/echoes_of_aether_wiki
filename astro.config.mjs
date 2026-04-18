@@ -8,9 +8,14 @@ export default defineConfig({
 	site: 'https://wiki.ruskserver.com',
 	integrations: [
 		starlight({
-			defaultTheme: 'dark',
 			title: 'Echoes of Aether Wiki',
 			customCss: ['./src/styles/tailwind.css'],
+			head: [
+				{
+					tag: 'script',
+					content: 'document.documentElement.dataset.theme = "dark"; localStorage.setItem("starlight-theme", "dark");',
+				},
+			],
 			components: {
 				Header: './src/components/HeaderLinks.astro'
 			},
