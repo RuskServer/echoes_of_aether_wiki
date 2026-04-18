@@ -5,6 +5,7 @@ import tailwindv4 from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
+	site: 'https://wiki.ruskserver.com',
 	integrations: [
 		starlight({
 			title: 'Echoes of Aether Wiki',
